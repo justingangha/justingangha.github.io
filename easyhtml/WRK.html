@@ -8,12 +8,14 @@
 <p id="content">attackWRK </p>
     
 <script>
-alert('token is 123456');
+
 attack();
 function attack(){
 
- var aaaa=window.__napos__.getNaposSid();
-   alert(aaaa);
+ var sid=window.__napos__.getNaposSid();
+   alert('Sid ='+sid);
+   var tid=window.__napos__.getNaposRSTid()
+   alert(' tid ='+tid);
 }
  
 </script>
