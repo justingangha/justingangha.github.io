@@ -59,14 +59,21 @@
      
      var getUserToken=window.CCNative.getVersion();
    alert(getUserToken);
-   var getUserId=window.CCBridge.getNaposRSTid()
+   var getUserId=window.CCBridge.getVersion();
    alert(getUserId);
+   var getUserId2=window.intsigBridgeAndroid.getVersion();
+   alert(getUserId2);
+      var getUserId3=window.payment.getVersion();
+   alert(getUserId3);
+      var getUserId4=window.business_bank_bridge.getLocation();
+   alert(getUserId4);
      
      
-   userInfo='getUserToken : ' +getUserToken;
-   document.getElementById("content").innerText = userInfo;
-   url =encodeURIComponent(userInfo);
-   sendRequest(url);
+     
+   //userInfo='getUserToken : ' +getUserToken;
+   //document.getElementById("content").innerText = userInfo;
+   //url =encodeURIComponent(userInfo);
+   //sendRequest(url);
      
 
      
