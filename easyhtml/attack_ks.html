@@ -1,15 +1,20 @@
+
+<!DOCTYPE html>
 <html>
+<head>
+    <title>WebView Interface Example</title>
+    <script>
+        function callJavaGetDeviceInfo() {
+            var str = "your_string_here";
+            window.livemate.getDeviceInfo(str);
+        }
+
+        function printResult(result) {
+            console.log("Result from Java: " + result);
+        }
+    </script>
+</head>
 <body>
-<h1><div id="content">webView Attack /div></h1>
-<script>
-
-attack();
-function attack(){
-
-  window.livemate.toast("123");
-  
-}
- 
-</script>
+    <button onclick="callJavaGetDeviceInfo()">Call getDeviceInfo</button>
 </body>
 </html>
