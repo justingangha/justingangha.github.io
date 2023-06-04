@@ -1,0 +1,15 @@
+</head>
+<body>
+<h1><div id="content">webView Attack /div></h1>
+ 
+<script>
+
+attack();
+function attack(){
+
+ window.livemate.showDialog("123");
+  window.livemate.toast("123");
+  
+}
+ 
+</script>
