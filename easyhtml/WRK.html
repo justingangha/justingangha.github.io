@@ -50,12 +50,11 @@
     
  function attackWRK() {
      
-        var getUserId4=window.amcfm_utils.queryDeviceId();
+        var getUserId4=window.BLightApp.getDeviceInfo();
          alert(getUserId4);
-     var getUserId2=window.amcfm_utils.queryNetworkStatus();
-         alert(getUserId2);
+           window.BLightApp.testInvoke(getUserId4);
      
-        window.amcfm_utils.openCamera();
+        window.BLightApp.openCamera();
 
      
      
