@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>路由测试页面</title>
+    <script language="javascript">
+                    function searchInput(url){//搜索结果页(旧)
+                        value1 = document.getElementById("searchInput1").value;
+                        value2 = document.getElementById("searchInput2").value;
+                        document.getElementById("searchButton").href = url+"title="+value1+"&cid="+value2;
+                    }
+                function searchInput2(url,index){//搜索结果页(新)
+                    var value1;
+                    if (index == 1){
+                        value1 = document.getElementById("searchInput3").value;
+                        document.getElementById("searchButton3").href = url+"keyword="+value1;
+                    }else{
+                        value1 = document.getElementById("searchInput4").value;
+                        document.getElementById("searchButton4").href = url+"cid="+value1;
+                    }
+                }
+                function reserveInput(url){
+                    value1= document.getElementById("ReserveInput1").value;
+                    value2 = document.getElementById("ReserveInput2").value;
+                    value3 = document.getElementById("ReserveInput3").value;
+                    value4 = document.getElementById("ReserveInput4").value;
+                    if(value1 && value2 && value3 && value4){
+                        document.getElementById("reserveButton").href = url+"prodId="+value1+"&prodKind="+value2+"&packIdEn="+value3+"&packName="+value4;
+                    }
+                }
+                
+                function InsuredInput(url,url2){
+                    value1= document.getElementById("InsuredInput1").value;
+                    value2 = document.getElementById("InsuredInput2").value;
+                    if(value1 && value2){
+                        document.getElementById("InsuredButton1").href = url+"planId="+value1+"&orderId="+value2+url2;
+                        document.getElementById("InsuredButton").href = url+"planId="+value1+"&orderId="+value2+url2;
+                        document.getElementById("InsuredButton2").href = url+"planId="+value1+url2;
+                    }
+                }
+                
+                function allGiftsInput(url,index){
+                    value1= document.getElementById("allGiftsInput").value;
+                    if(index == 1){
+                        document.getElementById("allGiftsButton").href = url+"channel="+value1;
+                    }else{
+                        document.getElementById("allGiftsButton2").href = url+"channel="+value1;
+                    }
+                }
+                
+                function giftsIdInput(url,index){
+                    value1= document.getElementById("giftIdInput").value;
+                    if(index == 1){
+                        document.getElementById("giftIdButton").href = url+value1;
+                    }else{
+                        document.getElementById("giftIdButton1").href = url+value1;
+                    }
+                }
+                
+                function policyInput(url){
+                    value1= document.getElementById("policyInput").value;
+                    document.getElementById("policyDetailButton").href = url+value1;
+                }
+                
+                function orderDetailInput(url){
+                    value1= document.getElementById("orderDetailInput").value;
+                    document.getElementById("orderDetailButton").href = url+value1;
+                }
+                
+                function versionInput(url){
+                    value1= document.getElementById("versionInput").value;
+                    document.getElementById("versionButton").href = url+value1;
+                }
+                
+                function topicInput(url,index){
+                    value1= document.getElementById("topicInput").value;
+                    if(index == 1){
+                        document.getElementById("topicButton").href = url+value1;
+                    }else{
+                        document.getElementById("topicButton2").href = url+value1;
+                    }
+                }
+                function productIdInput(url,index){
+                    value1= document.getElementById("productIdInput").value;
+                    if(index == 1){
+                        document.getElementById("productIdButton").href = url+value1;
+                    }else{
+                        document.getElementById("productIdButton2").href = url+value1;
+                    }
+                }
+                
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/user/register">注册页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/kefu">客服页面</a><br/>
+
+<P>
+    <a class="j-button"
+       href="xyz://page?iOS=HistoryDataVC.class,HistoryDataVC,HistoryDataVC&android=com.focustech.xyz.business.home.ui.activity.MyFootprintActivity">任意页面跳转(足迹)</a><br/>
+    <a class="j-button"
+       href="xyz://page?iOS=CheckIn.storyboard,CheckInManagerVC,CheckInManagerVC&android=com.focustech.xyz.business.signmanagement.SignManageActivity">任意页面跳转(签到)</a><br/>
+</p>
+
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/list?status=4">保单列表(已退保)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/list?status=3">保单列表(已过期)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/list?status=1">保单列表(待生效)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/list?status=2">保单列表(已生效)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/list?status=0">保单列表(全部)</a><br/>
+</p>
+
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/order/list?status=0">订单列表(全部)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/order/list?status=10">订单列表(待支付)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/order/list?status=98">订单列表(已承保)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/order/list?status=99">订单列表(被拒保)</a><br/>
+</p>
+
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/rate/list?status=1">我的评价(已评价)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/rate/list?status=0">我的评价(待评价)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/claim/list?status=1">理赔列表(理赔结束)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/claim/list?status=0">理赔列表(理赔中)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/claim/detail?claimId=179776">理赔详情</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/coupon/list?status=1">我的优惠券(已使用/过期)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/coupon/list?status=0">我的优惠券(未使用)</a><br/>
+</p>
+
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/user/unusual">账号异常页</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/product/list">挑保险</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/anxin/home">安心管首页</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/message/center">消息中心</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/center">会员中心</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/auth">实名认证页</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/modal">我的勋章</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/product/shake">摇一摇页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/point/history">积分列表</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/edit">会员资料</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/financing">我的理财</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/address/list">寄送地址管理</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/checkin">签到</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/channel">会员频道</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/contacts/list">常用联系人</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/product/collect">我的收藏夹</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/order/collection">订单归集</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/qrCode">扫一扫</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/shareGetMoneyPage">推荐拿赏金页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/policy/RenewList">待续保页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/mobile/bind">绑定手机页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/anxin/choiceMemberPage">选择保障对象页面</a><br/>
+</p>
+
+<P>
+    <a class="j-button" href="xyz://m.xyz.cn/setting">设置页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/feedback">反馈页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/user/login">登录页面</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/product/footprint">足迹</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/home">首页</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/special/hotsale">畅销产品</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/special/topic/list">小新精选</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/pointmall/mygift">我的礼品</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/claim/introduce">省心陪</a><br/>
+    <a class="j-button" href="http://m.xyz.cn/pointmall">积分商城</a><br/>
+    <a class="j-button" href="https://m.xyz.cn/app/pointmall">积分商城(/app)</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/insure/insureProgram/list">保险规划书</a><br/>
+    <a class="j-button" href="xyz://m.xyz.cn/insure/planCustomized">申请定制页面</a><br/>
+    <a class="j-button"
+       href="xyz://m.xyz.cn/webview?url=https://m.xyz.cn/specials/2020/renshouyytg/index.html">跳转自定义网页</a><br/>
+    <a class="j-button"
+       href="https://m.xyz.cn/app/home?appId=190212294356&utm_source=calendar">日历提醒</a><br/>
+</p>
+<p>
+    <input type="text" class="j-input" id="searchInput1" value="旅游险">
+    <input type="text" class="j-input" id="searchInput2" value="101">
+    <a href="#" class="j-button" id="searchButton"
+       onclick="searchInput('xyz://productList?')">搜索结果页(旧)</a><br/>
+
+    <input type="text" class="j-input" id="searchInput3" value="旅游">
+    <a href="#" class="j-button" id="searchButton3"
+       onclick="searchInput2('xyz://m.xyz.cn/product/search?',1)">搜索结果页(新-q)</a><br/>
+
+    <input type="text" class="j-input" id="searchInput4" value="101">
+    <a href="#" class="j-button" id="searchButton4"
+       onclick="searchInput2('xyz://m.xyz.cn/product/search?',2)">搜索结果页(新-cid)</a><br/>
+</p>
+
+
+<p>
+    <label>产品ID：</label> <input type="text" class="j-input" id="ReserveInput1" value="3010700"><br/>
+    <label>产品类型：</label> <input type="text" class="j-input" id="ReserveInput2" value="101-05"><br/>
+    <label>产品加密ID：</label> <input type="text" class="j-input" id="ReserveInput3"
+                                  value="j25gh3gjja6jj"><br/>
+    <label>产品名称：</label> <input type="text" class="j-input" id="ReserveInput4"
+                                value="弘康多倍保重大疾病保障（预约）">
+    <a href="#" class="j-button" onclick="reserveInput('xyz://m.xyz.cn/product/appointment?')"
+       id="reserveButton">预约顾问</a><br/>
+</p>
+
+<P>
+    <label>下面两个输入框用于投保信息（三个）按钮</label><br/>
+    <label>产品ID：</label> <input type="text" class="j-input" id="InsuredInput1" value="3022401"><br/>
+    <label>订单ID：</label> <input type="text" class="j-input" id="InsuredInput2" value="180424087529"><br/>
+    <a href="#" class="j-button" id="InsuredButton"
+       onclick="InsuredInput('xyz://m.xyz.cn/insure?','&rebuy=NO&renew=NO')">投保信息(继续填写)</a><br/>
+    <a href="#" class="j-button" id="InsuredButton1"
+       onclick="InsuredInput('xyz://m.xyz.cn/insure?','&rebuy=YES&renew=NO')">投保信息(再次购买)</a><br/>
+    <a href="#" class="j-button" id="InsuredButton2"
+       onclick="InsuredInput('xyz://m.xyz.cn/insure?','&rebuy=NO&renew=YES')">投保信息(新页面)</a><br/>
+</p>
+
+<P>
+    <label>下面一个输入框用于所有礼品（两个）按钮</label><br/>
+    <label>分类(channel)：</label> <input type="text" class="j-input" id="allGiftsInput"
+                                       value="1"><br/>
+    <a href="#" class="j-button" id="allGiftsButton" onclick="allGiftsInput('xyz://allGifts?',1)">所有礼品(旧)</a><br/>
+    <a href="#" class="j-button" id="allGiftsButton2"
+       onclick="allGiftsInput('xyz://m.xyz.cn/pointmall/allgift?',2)">所有礼品(新)</a><br/>
+</p>
+
+<P>
+    <label>下面一个输入框用于礼品详情（两个）按钮</label><br/>
+    <label>礼品ID：</label> <input type="text" class="j-input" id="giftIdInput" value="4725"><br/>
+    <a href="#" class="j-button" id="giftIdButton"
+       onclick="giftsIdInput('xyz://giftDetail?giftId=',1)">礼品详情(旧)</a><br/>
+    <a href="#" class="j-button" id="giftIdButton1"
+       onclick="giftsIdInput('xyz://m.xyz.cn/pointmall/gift/detail?giftId=',2)">礼品详情(新)</a><br/>
+</p>
+
+<P>
+    <label>保单详情ID：</label> <input type="text" class="j-input" id="policyInput" value="7230225">
+    <a href="#" class="j-button" id="policyDetailButton"
+       onclick="policyInput('xyz://m.xyz.cn/policy/detail?policyId=')">保单详情</a><br/>
+</p>
+
+<P>
+    <label>订单详情ID：</label> <input type="text" class="j-input" id="orderDetailInput"
+                                  value="180424087529">
+    <a href="#" class="j-button" id="orderDetailButton"
+       onclick="orderDetailInput('xyz://m.xyz.cn/order/detail?orderId=')">订单详情</a><br/>
+</p>
+
+<p>
+    <label>版本号：</label> <input type="text" class="j-input" id="versionInput" value="4.14.10">
+    <a href="#" class="j-button" id="versionButton"
+       onclick="versionInput('xyz://m.xyz.cn/update?v=')">AppStore(新)</a><br/>
+</p>
+
+<P>
+    <label>下面一个输入框用于精选详情页（两个）按钮</label><br/>
+    <label>精选ID：</label> <input type="text" class="j-input" id="topicInput" value="15241"><br/>
+    <a href="#" class="j-button" id="topicButton"
+       onclick="topicInput('xyz://m.xyz.cn/special/topic/detail?topicId=',1)">精选详情页(新)</a><br/>
+    <a href="#" class="j-button" id="topicButton2" onclick="topicInput('xyz://topic?topicID=',2)">精选详情页(旧)</a><br/>
+</p>
+
+<P>
+    <label>下面一个输入框用于产品详情（两个）按钮</label><br/>
+    <label>产品ID：</label> <input type="text" class="j-input" id="productIdInput"
+                                value="3009300"><br/>
+    <a href="#" class="j-button" id="productIdButton"
+       onclick="productIdInput('xyz://product?productID=',1)">产品详情(旧)</a><br/>
+    <a href="#" class="j-button" id="productIdButton2"
+       onclick="productIdInput('xyz://m.xyz.cn/product/detail?planId=',2)">产品详情(新)</a><br/>
+
+</p>
+
+</body>
+
+</html>
