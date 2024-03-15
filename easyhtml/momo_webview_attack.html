@@ -10,13 +10,20 @@
      
 <script>
 
+ function callback(var1, var2) {
+        alert('var1 : ' + var1 + ' ,  var2 :' + var2);
+   }
+
  attackMomo();   
     
  function attackMomo() {
-        var getUserLocation=window.aobj.getLocation();
-         var getScreenInfo=window.aobj.getScreenInfo();
+    
+        var temp1 = '{"methodName": "getNetworkType", "params": "", "callback": "callback", "network_type": "123"}';
+       //var temp2 = '{"methodName": "getNetworkType", "params": "", "callback": "callback", "network_type": "123"}';
+        var getUserLocation=window.aobj.getNetworkType(temp1);
+         //var getScreenInfo=window.aobj.getScreenInfo(temp2);
          alert(getUserLocation);
-         alert(getScreenInfo);
+         //alert(getScreenInfo);
         alert(1);
 }   
 </script>
