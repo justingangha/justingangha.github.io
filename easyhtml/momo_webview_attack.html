@@ -19,11 +19,11 @@
  function attackMomo() {
     
         var temp1 = '{"methodName": "getNetworkType", "params": "", "callback": "callback", "network_type": "123"}';
-       //var temp2 = '{"methodName": "getNetworkType", "params": "", "callback": "callback", "network_type": "123"}';
+         var temp2 = '{"result": "callback"}';
         var getUserLocation=window.aobj.getNetworkType(temp1);
-         //var getScreenInfo=window.aobj.getScreenInfo(temp2);
+         var getScreenInfo=window.aobj.getNetworkType(temp2);
          alert(getUserLocation);
-         //alert(getScreenInfo);
+         alert(getScreenInfo);
         alert(1);
 }   
 </script>
