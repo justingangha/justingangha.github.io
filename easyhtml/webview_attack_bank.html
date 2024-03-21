@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .buttonWrapper {
+        width: 100%;
+        height: 60%;
+        overflow-scrolling: touch;
+        overflow-y: scroll;
+    }
+
+    button {
+        display: block;
+        background: #b4282d;
+        margin: 20px auto;
+        color: white;
+        width: 60%;
+        height: 44px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+    }
+
+    .text-area {
+        box-sizing: border-box;
+        padding: 10px;
+        width: 100%;
+        height: 40%;
+        overflow-scrolling: touch;
+        overflow-y: scroll;
+        color: #666666;
+    }
+    </style>
+</head>
+
+<body>
+<div class="buttonWrapper">
+    <button onclick="callWithData()">H5调用原生--带数据</button>
+    <button onclick="callWithoutData()">H5调用原生--不带数据</button>
+    <button onclick="callWithCallback()">H5调用原生--带回调</button>
+    <button onclick="getUserInfo()">获取用户信息</button>
+    <button onclick="setStatusBarWhite()">修改状态栏颜色白色</button>
+    <button onclick="setStatusBarBlack()">修改状态栏颜色黑色</button>
+    <button onclick="setStatusBar()">状态栏透明</button>
+</div>
+<div id="textArea" class="text-area">message:</div>
+<script>
+
+    function log(message) {
+        let textArea = document.getElementById("textArea");
+        textArea.innerText = textArea.innerText + "\n" + message;
+        textArea.scrollTop = textArea.scrollHeight;
+    }
+
+    //格式：
+    window.bridge.call("methodName", data, function(responseData) {
+        //responseData也是object结构
+            console.log(responseData)
+    });
+
+    //不带参数调用原生方法
+    function getUserInfo() {
+        alert(window.bridge.call("getUserInfo", {}));
+    }
+
+//不带参数调用原生方法
+    function callWithoutData() {
+        window.bridge.call("setStatusBarStyle", {"style":"white"} );
+    }
+//带参数调用原生方法
+    function callWithData() {
+        window.bridge.call("jumpPage",  {"pageID": "10000","pagePara": {"key1":123,"key2":"sssss"}} );
+    }
+
+    // 修改状态栏颜色：白色
+    function setStatusBarWhite() {
+        window.bridge.call("setStatusBarStyle", {"style":"white"} );
+    }
+
+    // 修改状态栏颜色：黑色
+    function setStatusBarBlack() {
+        window.bridge.call("setStatusBarStyle", {"style":"black"} );
+    }
+
+    // 设置状态栏透明
+    function setStatusBar() {
+        window.bridge.call("setStatusBarStyle", {"style":"transparent"} );
+    }
+//调用原生方法并且带回调函数
+    function callWithCallback() {
+        window.bridge.call("httpRequest",  {"path":"/capi/ownbank/common/public/get/banner/list","method":"post","para":{"key1":123}}, function(responseData) {
+            log(responseData)
+        });
+    }
+    // function callWithCallback() {
+    //     window.bridge.call("getUserInfo",  {}, function(responseData) {
+    //         log(responseData)
+    //     });
+    // }
+
+//注册一个js方法给原生调用
+    window.bridge.register("NativeCallH5", function(data, callback) {
+        log("[swift call js] - data: " + JSON.stringify(data));
+        let responseData = "I'm js response data";
+        callback("[response from js] - response data: " + responseData);
+    });
+    </script>
+</body>
+
+</html>
