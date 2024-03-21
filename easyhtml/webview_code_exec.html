@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试页</title>
+    <title>webview_js_rce</title>
 </head>
 <!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
 <!-- 引入样式 -->
@@ -232,33 +232,8 @@
         <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportDeviceInfo();return false;">reportDeviceInfo</a></td>
     </tr>
 
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="uploadByurls();return false;">已知url上传文件</a></td>
 
-    </tr>
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportDeviceInfo();return false;">下单/授信数据上报打包</a></td>
 
-    </tr>
-
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="askPermissions();return false;">请求权限</a></td>
-
-    </tr>
-    <!--数据上报-->
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportV3();return false;">行为日志v3上报</a></td>
-        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="reportV4();return false;">行为日志v4上报</a></td>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="sence();return false;">神策上报</a></td>
-        <td><input v-model="imgPath" type="text"/></td>
-    </tr>
-    <!--上传下载-->
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="putFileToUrl();return false;">指定url上传</a></td>
-        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="uploadImg();return false;">单张图片上传</a></td>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="uploadImgs();return false;">多张图片上传</a></td>
-        <td><input v-model="imgPath" type="text"/></td>
-    </tr>
     <!--信息获取-->
     <tr>
         <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="getUserInfo();return false;">获取用户信息</a></td>
@@ -288,10 +263,7 @@
         <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="goSysSetting();return false;">去手机系统设置页面</a></td>
         <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="chooseContact();return false;">去手机联系人页面选择一个联系人,然后返回</a></td>
     </tr>
-    <!--业务-->
-    <tr>
-        <td><a  style="font-size: xx-large" href="javascript:void(0);" >业务</a></td>
-    </tr>
+  
 </table>
 
 
