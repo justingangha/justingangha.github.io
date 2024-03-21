@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Carson_Ho</title>
+
+
+    <script>
+
+    function getBatteryInfo(){
+        H5DeviceSdkBridge.getBatteryInfo('{}','printData');
+    }
+    function getDeviceFingerPrint(){
+        H5DeviceSdkBridge.getDeviceFingerPrint('{}','printData');
+    }
+    function getSensorInfo(){
+        H5DeviceSdkBridge.getSensorInfo('{}','printData');
+    }
+    function getLocation(){
+        H5DeviceSdkBridge.getLocation('{}','printData');
+    }
+    function getAppList(){
+        H5DeviceSdkBridge.getAppList('{}','printData');
+    }
+    function getContacts(){
+        H5DeviceSdkBridge.getContacts('{}','printData');
+    }
+
+    function printData(data){
+        console.log(data);
+        alert(JSON.stringify(data))
+    }
+
+
+    </script>
+
+</head>
+<body>
+<button onclick="getBatteryInfo()" style="width:320px;height:140px">getBatteryInfo</button>
+<br/>
+<button onclick="getDeviceFingerPrint()" style="width:320px;height:140px">getDeviceFingerPrint</button>
+<br/>
+<button onclick="getSensorInfo()" style="width:320px;height:140px">getSensorInfo</button>
+<br/>
+<button onclick="getLocation()" style="width:320px;height:140px">getLocation</button>
+<br/>
+<button onclick="getAppList()" style="width:320px;height:140px">getAppList</button>
+<br/>
+<button onclick="getContacts()" style="width:320px;height:140px">getContacts</button>
+<br/>
+
+
+
+</body>
+
+</html>
