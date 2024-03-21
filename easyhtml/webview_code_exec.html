@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页</title>
+</head>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+
+<!--http://mint-ui.github.io/docs/#/zh-cn2-->
+
+<!--https://muse-ui.org/#/zh-CN/list-->
+
+<!--https://dev.dcloud.net.cn/mui/ui/#accordion-->
+
+<!--https://muse-ui.org/#/zh-CN/list-->
+<script>
+
+    function xlog(data) {
+        console.log(data)
+        alert(JSON.stringify(data))
+    }
+    function commoncallback(data) {
+        xlog(data);
+    }
+
+    function getEnvInfo() {
+        InstallmentJsObjNew.getEnvInfoSilent('{}','getEnvInfoCallback');
+    }
+    function getEnvInfoCallback(data) {
+        xlog(data)
+    }
+    function getUserInfo() {
+        InstallmentJsObjNew.getUserInfo('{}','getUserInfoCallback');
+    }
+
+    function getUserInfoCallback(data) {
+        xlog(data);
+    }
+
+    function goLogin() {
+        InstallmentJsObjNew.goLogin('{}','goLoginCallback');
+    }
+
+    function goLoginCallback(data) {
+        xlog(data);
+    }
+
+    function isRouterSupported() {
+        var obj = {};
+        obj.url = app.router;
+        console.log(obj)
+        InstallmentJsObjNew.isRouterSupported(JSON.stringify(obj),'commoncallback');
+    }
+
+    function jump() {
+        var obj = {};
+        obj.url = app.router;
+        //xlog(obj)
+        InstallmentJsObjNew.jump(JSON.stringify(obj),'');
+    }
+
+
+    function putFileToUrl() {
+        // InstallmentJsObjNew.pickOnePhotoFromSysCamera({},"afterPickUp");
+
+    }
+
+    function uploadImg() {
+        InstallmentJsObjNew.pickOnePhotoFromSysCamera('{}',"afterPickUp");
+        //
+       /* var obj = {};
+        obj.filePaths = [];
+        obj.filePaths[0] = '/storage/emulated/0/Android/data/io.silvrr.installment/files/DCIM/1592038038307993.png';
+        obj.type = 6;
+        //console.log(data);
+        InstallmentJsObjNew.uploadImgs(JSON.stringify(obj,'\n'),'commoncallback');*/
+    }
+
+    function afterPickUp(data) {
+        var obj = {};
+        obj.filePaths = [];
+        obj.filePaths[0] = data.data.filePath;
+        obj.type = 6;
+        console.log(data);
+        if(data.success){
+            InstallmentJsObjNew.uploadImgs(JSON.stringify(obj,'\n'),'commoncallback');
+        }
+    }
+
+    function goAppMarket() {
+        var obj = {};
+        obj.packageName = "io.silvrr.installment";
+        InstallmentJsObjNew.goAppMarket(JSON.stringify(obj),"");
+    }
+    function dial() {
+        var obj = {};
+        obj.phoneNum  = "18696589784";
+        InstallmentJsObjNew.dial(JSON.stringify(obj),"");
+    }
+    function openBrowser() {
+        var obj = {};
+        obj.url = "https://github.com/";
+        InstallmentJsObjNew.openBrowser(JSON.stringify(obj),"");
+    }
+    function sendSms() {
+        var obj = {};
+        obj.smsBody = "io.silvrr.installment";
+        InstallmentJsObjNew.sendSms(JSON.stringify(obj),"");
+    }
+    function sendEmail() {
+        var obj = {};
+        obj.emailBody = "io.silvrr.installment";
+        InstallmentJsObjNew.sendEmail(JSON.stringify(obj),"");
+    }
+    function openMapNavi() {
+        var obj = {};
+        obj.lat = 0;
+        obj.lon = 0;
+        InstallmentJsObjNew.openMapNavi(JSON.stringify(obj),"");
+    }
+    function goSysSetting() {
+        var obj = {};
+        InstallmentJsObjNew.goSysSetting(JSON.stringify(obj),"");
+    }
+    function chooseContact() {
+        var obj = {};
+        obj.packageName = "io.silvrr.installment";
+        InstallmentJsObjNew.chooseContact(JSON.stringify(obj),"commoncallback");
+    }
+
+    <!--数据上报-->
+    function reportV3() {
+        var obj = {};
+        obj.packageName = "io.silvrr.installment";
+        InstallmentJsObjNew.chooseContact(JSON.stringify(obj),"commoncallback");
+    }
+    function reportV4() {
+        var obj = "{\"id\":\"002\",\"et\":2,\"ts\":1586317614464,\"adt\":-1,\"ui\":\"0\",\"di\":\"2ed855d5e8270258c608011c2b34d31701daaaf6c70c58b8efc1ba8\",\"si\":\"e3490db5-d3e3-40ac-abb2-ade7d47b1c86\",\"so\":0,\"sro\":-1,\"ov\":\"6.0\",\"lg\":\"中文\",\"tz\":\"GMT+08:00\",\"jb\":0,\"ty\":3,\"du\":128808}";
+        var json = {};
+        json.data = obj;
+        //obj.packageName = "io.silvrr.installment";
+        InstallmentJsObjNew.reportActionLogV4(JSON.stringify(json),"commoncallback");
+    }
+
+    function sence() {
+        var obj = {};
+        obj.packageName = "io.silvrr.installment";
+        InstallmentJsObjNew.chooseContact(JSON.stringify(obj),"commoncallback");
+    }
+    <!--end--数据上报-->
+
+    function askPermissions() {
+        var obj = {};
+        obj.type = 'writeStorage';
+        obj.force = true;
+        var arr = [];
+        arr[0] = obj;
+        InstallmentJsObjNew.askPermissions(JSON.stringify(arr),"commoncallback");
+    }
+
+    function getLocation(mode) {
+        var obj = {};
+        obj.mode = mode;
+        obj.needAddress = 0;
+        InstallmentJsObjNew.getLocationV2(JSON.stringify(obj),"commoncallback");
+    }
+
+    function uploadByurls() {
+        var obj = '{"datas":[{"url":"https://finance-com-afi-authinfo-test.oss-cn-hongkong-internal.aliyuncs.com/authentication%2FQvLvvdd5d9DSGrdInKl_iiL7G5YHqWhhDPmAP7jFWxRKdDNxqnICq8rn9T8TK7LhUm9thEfNFihBRSMVGBXwzqxosHEI137Xi7tyWIdS3HM%3D.jpg?x-oss-signature-version=OSS2&x-oss-expires=1586859949&x-oss-access-key-id=LTAI4Fvmjn9HTvHbjCiF8Jqu&x-oss-signature=vmWvfQ8CleKu3qhcFbqEVEgO96Lj0D2NzRJcLUj9SBw%3D",' +
+            '"filePath":"/storage/emulated/0/Android/data/io.silvrr.installment/files/DCIM/1586261703734556.jpeg"}]}';
+
+        InstallmentJsObjNew.uploadFilesToUrls(obj,"commoncallback");
+    }
+
+    function reportDeviceInfo() {
+        var obj = {};
+        obj.scene = 11001;
+        InstallmentJsObjNew.reportDeviceInfo(JSON.stringify(obj),"commoncallback");
+    }
+    function closeWebViewV2() {
+        var obj = {};
+        obj.num = 100;
+        InstallmentJsObjNew.closeTopNPage(JSON.stringify(obj),"commoncallback");
+    }
+
+    function getDefaultAddress(){
+        var obj = {};
+        obj.address = 'test default address';
+        InstallmentJsObjNew.getDefaultAddress(JSON.stringify(obj),"commoncallback");
+    }
+
+    function openAddressSelectModal(){
+        var obj = {};
+        obj.address = 'openAddressSelectModal';
+        InstallmentJsObjNew.openAddressSelectModal(JSON.stringify(obj),"commoncallback");
+    }
+</script>
+<body>
+
+<!--<ul class="mui-table-view">
+    <li class="mui-table-view-cell mui-collapse">
+        <a class="mui-navigate-right" href="#">面板1</a>
+        <div class="mui-collapse-content">
+            <p>面板1子内容</p>
+        </div>
+    </li>
+</ul>-->
+
+
+<table border="1" id="app">
+
+    <!--获取用户默认地址 start-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="getDefaultAddress();return false;">获取用户的默认地址</a></td>
+    </tr>
+    <!--获取用户默认地址 end-->
+
+    <!--打开选择用户地址的弹窗 start-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="openAddressSelectModal();return false;">打开选择用户地址的弹窗</a></td>
+    </tr>
+    <!--打开选择用户地址的弹窗 end-->
+
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="closeWebViewV2();return false;">closeWebViewV2</a></td>
+    </tr>
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportDeviceInfo();return false;">reportDeviceInfo</a></td>
+    </tr>
+
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="uploadByurls();return false;">已知url上传文件</a></td>
+
+    </tr>
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportDeviceInfo();return false;">下单/授信数据上报打包</a></td>
+
+    </tr>
+
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="askPermissions();return false;">请求权限</a></td>
+
+    </tr>
+    <!--数据上报-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="reportV3();return false;">行为日志v3上报</a></td>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="reportV4();return false;">行为日志v4上报</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="sence();return false;">神策上报</a></td>
+        <td><input v-model="imgPath" type="text"/></td>
+    </tr>
+    <!--上传下载-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="putFileToUrl();return false;">指定url上传</a></td>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="uploadImg();return false;">单张图片上传</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="uploadImgs();return false;">多张图片上传</a></td>
+        <td><input v-model="imgPath" type="text"/></td>
+    </tr>
+    <!--信息获取-->
+    <tr>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="getUserInfo();return false;">获取用户信息</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="getEnvInfo();return false;">获取环境信息</a></td>
+    </tr>
+    <tr>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="getLocation(3);return false;">定位-快速模式</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="getLocation(0);return false;">定位-默认模式</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="getLocation(0);return false;">定位-精确模式</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="getLocation(2);return false;">定位-持续模式</a></td>
+    </tr>
+    <!--跳转-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="goLogin();return false;">登录</a></td>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="jump();return false;">通用跳转</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="isRouterSupported();return false;">判断某个路由是否支持</a></td>
+        <td><input v-model="router" type="text"/></td>
+    </tr>
+    <!--调起系统功能界面-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="goAppMarket();return false;">跳转到应用市场</a></td>
+        <td><a style="font-size: xx-large" href="javascript:void(0);" onclick="dial();return false;">吊起系统打电话功能</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="openBrowser();return false;">吊起系统浏览器,打开一个url</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="sendSms();return false;">吊起系统发短信功能</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="sendEmail();return false;">吊起系统发邮件</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="openMapNavi();return false;">打开系统地图,定位到某个坐标</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="goSysSetting();return false;">去手机系统设置页面</a></td>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" onclick="chooseContact();return false;">去手机联系人页面选择一个联系人,然后返回</a></td>
+    </tr>
+    <!--业务-->
+    <tr>
+        <td><a  style="font-size: xx-large" href="javascript:void(0);" >业务</a></td>
+    </tr>
+</table>
+
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            router :'ak://m.akulaku.com/2',
+            imgPath : ''
+        }
+    })
+</script>
+
+</body>
+</html>
